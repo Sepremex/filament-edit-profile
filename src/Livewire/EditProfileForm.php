@@ -8,7 +8,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Support\Exceptions\Halt;
-use Illuminate\Support\Facades\Storage;
 use Joaopaulolndev\FilamentEditProfile\Concerns\HasUser;
 
 class EditProfileForm extends BaseProfileForm
@@ -29,7 +28,7 @@ class EditProfileForm extends BaseProfileForm
 
         $this->userClass = get_class($this->user);
 
-        $fields = ['name', 'email',$this->user->getAuthIdentifierName()];
+        $fields = ['name', 'email'];
 
         if (filament('filament-edit-profile')->getShouldShowAvatarForm()) {
             $fields[] = config('filament-edit-profile.avatar_column', 'avatar_url');
